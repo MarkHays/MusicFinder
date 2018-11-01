@@ -17,30 +17,20 @@ var trainEntry = database.ref().push({
 // https://console.firebase.google.com/u/0/project/walmart-list/database/walmart-list/data
 
 
-var walmartAPI = "http://api.walmartlabs.com/v1/search?apiKey={apiKey}&query={UPC"
-var googleAPI ="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqNAG9PCjtgym4szadGM-KYmiWgrVYICM&callback=initMap"
+// var walmartAPI = "http://api.walmartlabs.com/v1/search?apiKey={apiKey}&query={UPC"
+// var googleAPI ="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqNAG9PCjtgym4szadGM-KYmiWgrVYICM&callback=initMap"
 
-$.ajax({
-    url: walmartAPI,
-    method: "GET"
-})
+// $.ajax({
+//     url: walmartAPI,
+//     method: "GET"
+// })
 
-$.ajax({
-    url: googleAPI,
-    method: "GET"
-})
+// $.ajax({
+//     url: googleAPI,
+//     method: "GET"
+// })
 
-
-
-/* <th scope="row">1</th>
-    <td id="itemProduct">Milk</td>
-    <td id="itemBrand">Praire Farms</td>
-    <td id="itemCost">$4.03</td>
-    <td id="itemQuantity">2</td>
-    <td id="itemAvailability">Yes/No</td>
-    <td id="itemTotal">$$$</td> */
-
-var itemCost = $("#itemCost").val().trim(); //this is merely a placeholder until we get the API results
+var itemCost = $("#itemCost").val(); //this is merely a placeholder until we get the API results
 var itemQuantity = "-"
 var itemCalculated = itemCost * itemQuantity;
 $("#itemTotal").text(itemCalculated);
@@ -64,7 +54,7 @@ console.log("HI!");
 
 //=================
 
-var searchGroceriesValue = $("#searchGroceries").val().trim();
+var searchGroceriesValue = $("#searchGroceries").val()
 $("#searchGroceriesButton").on("click", function() {
 
 });

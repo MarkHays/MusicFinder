@@ -12,7 +12,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-database.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqNAG9PCjtgym4szadGM-KYmiWgrVYICM&callback=initMap"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqNAG9PCjtgym4szadGM-KYmiWgrVYICM&callback=initMap"></script> -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="assets/javascript/app.js"></script>
 </head>
@@ -27,9 +27,9 @@
                 <form>
                     <div class="form-group">
                         <label for="exampleInputText1">Grocery Search</label>
-                        <input type="text" class="form-control" id="exampleInputText1" placeholder="Search For Items Here!">
+                        <input type="text" class="form-control" id="searchGroceriesValue" placeholder="Search For Items Here!">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="searchGroceriesButton" class="btn btn-primary">Submit</button>
                     <br>
                 </form>
             </div>
@@ -54,7 +54,7 @@
                             <td id="itemProduct">Milk</td>
                             <td id="itemBrand">Praire Farms</td>
                             <td id="itemCost">$4.03</td>
-                            <td id="itemQuantity">2 
+                            <td id="itemQuantity">2
                                 <span>
                                     <button type="button" id="quantityButtonPlus" class="btn btn-sm btn-primary">+</button>
                                 </span>
@@ -86,9 +86,10 @@
                     </tbody>
                 </table>
                 <div class="row">
-                   
-                        <div class="col-md-4 ml-auto">.col-md-4 .ml-auto</div>
-                      </div>
+                    <div class="col-md-4 ml-auto bg-primary">
+                        .col-md-4 .ml-auto
+                    </div>
+                </div>
             </div>
         </div>
     </div>
