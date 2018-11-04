@@ -1,3 +1,13 @@
+#itemQuantity1,
+#itemQuantity2,
+#itemQuantity3 {
+    width: 75px;
+}
+
+body {
+    background-color: lightgrey;
+}
+
 #header {
     color: white;
     font-size: 50px;

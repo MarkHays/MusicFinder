@@ -4,17 +4,11 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Virtual Grocery List</title>
+    <title>Virtual Shopping List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-database.js"></script>
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqNAG9PCjtgym4szadGM-KYmiWgrVYICM&callback=initMap"></script> -->
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script src="assets/javascript/app.js"></script>
 </head>
 
 <body>
@@ -30,14 +24,15 @@
                         <input type="text" class="form-control" id="searchGroceriesValue" placeholder="Search For Items Here!">
                     </div>
                     <button type="submit" id="searchGroceriesButton" class="btn btn-primary">Submit</button>
-                    <br>
                 </form>
+                <br>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
                 <table class="table">
                     <thead>
+                        
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Product</th>
@@ -49,51 +44,71 @@
                         </tr>
                     </thead>
                     <tbody>
+                        
+                        <!-- FIRST -->
                         <tr>
                             <th scope="row">1</th>
                             <td id="itemProduct">Milk</td>
                             <td id="itemBrand">Praire Farms</td>
-                            <td id="itemCost">$4.03</td>
-                            <td id="itemQuantity">2
-                                <span>
-                                    <button type="button" id="quantityButtonPlus" class="btn btn-sm btn-primary">+</button>
-                                </span>
-                                <span>
-                                    <button type="button" id="quantityButtonMinus" class="btn btn-sm btn-primary">-</button>
-                                </span>
+                            <td><span>$</span><span id="itemCost1">1.19</span></td>
+                            <td>
+                                <form>
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" id="itemQuantity1" aria-describedby="emailHelp" placeholder="#">
+                                    </div>
+                                </form>
                             </td>
-                            <td id="itemAvailability">Yes/No</td>
-                            <td id="itemTotal">$$$</td>
+                            <td id="itemAvailability">Yes</td>
+                            <td><span>$</span><span id="totalCost1"></span></td>
                         </tr>
+                        
+                        <!-- SECOND -->
                         <tr>
                             <th scope="row">2</th>
                             <td>Cereal</td>
                             <td>Cocoa Puffs</td>
-                            <td>$5.40</td>
-                            <td>1</td>
-                            <td>Yes/No</td>
-                            <td>$$$</td>
+                            <td><span>$</span><span id="itemCost2">5.40</span></td>
+                            <td>
+                                <form>
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" id="itemQuantity2" aria-describedby="emailHelp" placeholder="#">
+                                    </div>
+                                </form>
+                            </td>
+                            <td>Yes</td>
+                            <td><span>$</span><span id="totalCost2"></span></td>
                         </tr>
+                        
+                        <!-- THIRD -->
                         <tr>
                             <th scope="row">3</th>
                             <td>Peanut Butter</td>
                             <td>GIF</td>
-                            <td>$3.26</td>
-                            <td>3</td>
-                            <td>Yes/No</td>
-                            <td>$$$</td>
+                            <td><span>$</span><span id="itemCost3">3.26</span></td>
+                            <td>
+                                <form>
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" id="itemQuantity3" aria-describedby="emailHelp" placeholder="#">
+                                    </div>
+                                </form>
+                            </td>
+                            <td>Yes</td>
+                            <td><span>$</span><span id="totalCost3"></span></td>
                         </tr>
                     </tbody>
                 </table>
                 <div class="row">
                     <div class="col-md-4 ml-auto bg-primary">
-                        .col-md-4 .ml-auto
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-database.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="assets/javascript/app.js"></script>
 
 </body>
 

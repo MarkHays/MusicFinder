@@ -5,8 +5,8 @@ var config = {
     projectId: "walmart-list",
     storageBucket: "gs://walmart-list.appspot.com",
     messagingSenderId: "49914300938",
-  };
-  firebase.initializeApp(config);
+};
+firebase.initializeApp(config);
 
 var database = firebase.database();
 
@@ -19,6 +19,8 @@ var trainEntry = database.ref().push({
 
 // var walmartAPI = "http://api.walmartlabs.com/v1/search?apiKey={apiKey}&query={UPC"
 // var googleAPI ="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqNAG9PCjtgym4szadGM-KYmiWgrVYICM&callback=initMap"
+var title = "jewelry";
+var etsyAPI = "https://openapi.etsy.com/v2/listings/active?limit=50&offset=0&api_key=xkvgjyiv47crd1nw11ir0ufh"
 
 // $.ajax({
 //     url: walmartAPI,
@@ -30,12 +32,23 @@ var trainEntry = database.ref().push({
 //     method: "GET"
 // })
 
+$.ajax({
+    url: etsyAPI,
+    method: "GET"
+})
+
+    .then(function (response) {
+        var results = response.data;
+        console.log(response);
+    });
+
 var itemCost = $("#itemCost").val(); //this is merely a placeholder until we get the API results
 var itemQuantity = "-"
 var itemCalculated = itemCost * itemQuantity;
 $("#itemTotal").text(itemCalculated);
 
-var quantityCalculated = 0
+var quantityCalculated = 0 ;
+$("#itemQuantity").text(quantityCalculated);
 $("#quantityButtonPlus").on("click", function () {
     quantityCalculated++;
     $("#itemQuantity").text(quantityCalculated);
@@ -55,8 +68,37 @@ console.log("HI!");
 //=================
 
 var searchGroceriesValue = $("#searchGroceries").val()
-$("#searchGroceriesButton").on("click", function() {
-
+$("#searchGroceriesButton").on("click", function () {
+    event.preventDefault();
+    //MULTIPLYING TOTAL FOR PRODUCT 1
+    var itemQuantity1 = $("#itemQuantity1").val().trim();
+    console.log("Quantity: " + itemQuantity1);
+    var itemCost1 = $("#itemCost1").text();
+    console.log("Cost: " + itemCost1);
+    var totalCost1 = itemQuantity1 * itemCost1;
+    console.log("Total: " + totalCost1);
+    $("#totalCost1").text(totalCost1);
+    console.log("----------");
+    
+    //MULTIPLYING TOTAL FOR PRODUCT 2
+    var itemQuantity2 = $("#itemQuantity1").val().trim();
+    console.log("Quantity: " + itemQuantity2);
+    var itemCost2 = $("#itemCost2").text();
+    console.log("Cost: " + itemCost2);
+    var totalCost2 = itemQuantity2 * itemCost2;
+    console.log("Total: " + totalCost2);
+    $("#totalCost2").text(totalCost2);
+    console.log("----------");
+    
+    //MULTIPLYING TOTAL FOR PRODUCT 3
+    var itemQuantity3 = $("#itemQuantity1").val().trim();
+    console.log("Quantity: " + itemQuantity3);
+    var itemCost3 = $("#itemCost3").text();
+    console.log("Cost: " + itemCost3);
+    var totalCost3 = itemQuantity3 * itemCost3;
+    console.log("Total: " + totalCost3);
+    $("#totalCost3").text(totalCost3);
+    console.log("----------");
 });
 
 
