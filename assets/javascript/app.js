@@ -1,17 +1,17 @@
-var config = {
-    apiKey: "AIzaSyD_HWz0DyW70i9wsEyKU0j8U-MEkzb0WCA",
-    authDomain: "walmart-list.firebaseapp.com",
-    databaseURL: "https://walmart-list.firebaseio.com",
-    projectId: "walmart-list",
-    storageBucket: "gs://walmart-list.appspot.com",
-    messagingSenderId: "49914300938",
-};
+// var config = {
+//     apiKey: "AIzaSyD_HWz0DyW70i9wsEyKU0j8U-MEkzb0WCA",
+//     authDomain: "walmart-list.firebaseapp.com",
+//     databaseURL: "https://walmart-list.firebaseio.com",
+//     projectId: "walmart-list",
+//     storageBucket: "gs://walmart-list.appspot.com",
+//     messagingSenderId: "49914300938",
+// };
 
-var database = firebase.database();
+// var database = firebase.database();
 
-var trainEntry = database.ref().push({
-    "placeholder": "placeholder"
-});
+// var trainEntry = database.ref().push({
+//     "placeholder": "placeholder"
+// });
 
 // https://console.firebase.google.com/u/0/project/walmart-list/database/walmart-list/data
 
@@ -50,9 +50,9 @@ $("searchPetsButton").on("click", function() {
         });
 });
 
-var itemCost = $("#itemCost").val(); //this is merely a placeholder until we get the API results
-var itemCalculated = itemCost * itemQuantity;
-$("#itemTotal").text(itemCalculated);
+// var itemCost = $("#itemCost").val(); //this is merely a placeholder until we get the API results
+// var itemCalculated = itemCost * itemQuantity;
+// $("#itemTotal").text(itemCalculated);
 
 var quantityCalculated = 0;
 $("#itemQuantity").text(quantityCalculated);
@@ -69,10 +69,9 @@ $("#quantityButtonMinus").on("click", function () {
     }
 })
 
-console.log("HI!");
-
 //=================
 $("#searchGroceriesButton").on("click", function () {
+    event.preventDefault();
     alert("This is a placeholder for the API");
 });
 
@@ -113,8 +112,8 @@ $("#calculateGroceriesButton").on("click", function () {
     console.log("----------");
 
     //ADDING TOTAL GROCERY COST BASED ON ALL PRODUCTS
-    totalGroceryCost = +totalCostConverted1 + +totalCostConverted2 + +totalCostConverted3;
-    $("#totalGroceryCost").text(totalGroceryCost).toFixed(2);
+    totalGroceryCost = (+totalCostConverted1 + +totalCostConverted2 + +totalCostConverted3).toFixed(2);
+    $("#totalGroceryCost").text(totalGroceryCost);
 });
 
 //============
