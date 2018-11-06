@@ -6,7 +6,6 @@ var config = {
     storageBucket: "gs://walmart-list.appspot.com",
     messagingSenderId: "49914300938",
 };
-firebase.initializeApp(config);
 
 var database = firebase.database();
 
@@ -118,13 +117,24 @@ $("#calculateGroceriesButton").on("click", function () {
     $("#totalGroceryCost").text(totalGroceryCost).toFixed(2);
 });
 
+//============
+//GIT COMMANDS
+//============
 // git checkout -B [branch-name] :: to make a new branch
 // git checkout [branch name] :: to switch branches
 // git merge [branch name] :: to merge [branch name] into the current branch you're on from "git checkout"
-// git status [shows what needs to be done]
+// git status :: shows what needs to be done
+//git add -A :: to add your new content
+//git commit -m "placeholder" :: to commit your new content
 // git push origin [branch-name] :: to 
 
+//============================
+//OTHER SHORTCUTS AND COMMANDS
+//============================
 // code . in order to open up in vs code
 // cmd+k is to clear out terminal
 //lgtm "looks good to me"; used sometimes in pull requests
 //MVP: "minimum viable product"
+
+
+//HERE'S MY CHANGE
