@@ -126,7 +126,7 @@ $("#calculateGroceriesButton").on("click", function () {
 // git status :: shows what needs to be done
 //git add -A :: to add your new content
 //git commit -m "placeholder" :: to commit your new content
-// git push origin [branch-name] :: to push changes to your local branch
+// git push origin [branch-name] :: to push changes to a/your branch
 
 //============================
 //OTHER SHORTCUTS AND COMMANDS
