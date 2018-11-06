@@ -1,3 +1,21 @@
+#itemQuantity1,
+#itemQuantity2,
+#itemQuantity3 {
+    width: 75px;
+}
+
+#searchTab {
+	color: white;
+}
+
+body {
+    background-color: lightgrey;
+}
+
+#barLine {
+    background-color: blue;
+}
+
 #header {
     color: white;
     font-size: 50px;
