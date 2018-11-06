@@ -124,9 +124,10 @@ $("#calculateGroceriesButton").on("click", function () {
 // git checkout [branch name] :: to switch branches
 // git merge [branch name] :: to merge [branch name] into the current branch you're on from "git checkout"
 // git status :: shows what needs to be done
-//git add -A :: to add your new content
-//git commit -m "placeholder" :: to commit your new content
+// git add -A :: to add your new content
+// git commit -m "placeholder" :: to commit your new content
 // git push origin [branch-name] :: to push changes to a/your branch
+// git branch :: to show in (in green) what branch you are currently on
 
 //============================
 //OTHER SHORTCUTS AND COMMANDS
