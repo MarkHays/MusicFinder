@@ -17,37 +17,45 @@ var trainEntry = database.ref().push({
 // https://console.firebase.google.com/u/0/project/walmart-list/database/walmart-list/data
 
 
-// var walmartAPI = "http://api.walmartlabs.com/v1/search?apiKey={apiKey}&query={UPC"
-// var googleAPI ="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqNAG9PCjtgym4szadGM-KYmiWgrVYICM&callback=initMap"
-var title = "jewelry";
-var etsyAPI = "https://openapi.etsy.com/v2/listings/active?limit=50&offset=0&api_key=xkvgjyiv47crd1nw11ir0ufh"
+$("searchPetsButton").on("click", function() {
+    // var walmartAPI = "http://api.walmartlabs.com/v1/search?apiKey={apiKey}&query={UPC"
+    // var googleAPI ="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqNAG9PCjtgym4szadGM-KYmiWgrVYICM&callback=initMap"
+    // var etsyAPI = "https://openapi.etsy.com/v2/listings/active?limit=50&offset=0&api_key=xkvgjyiv47crd1nw11ir0ufh"
+    
+    var APIKey = "4e8fa80a72539154b5bb5ed8f86127ab";
+    var searchPetsValue = $("#searchPetsValue");
+    var petfinderAPI = "http://api.petfinder.com/my.method?key=" + APIKey + "&animal=" + searchPetsValue;
 
-// $.ajax({
-//     url: walmartAPI,
-//     method: "GET"
-// })
-
-// $.ajax({
-//     url: googleAPI,
-//     method: "GET"
-// })
-
-$.ajax({
-    url: etsyAPI,
-    method: "GET"
-})
-
-    .then(function (response) {
-        var results = response.data;
-        console.log(response);
-    });
+    // $.ajax({
+    //     url: walmartAPI,
+    //     method: "GET"
+    // })
+    
+    // $.ajax({
+    //     url: googleAPI,
+    //     method: "GET"
+    // })
+    
+    // $.ajax({
+    //     url: etsyAPI,
+    //     method: "GET"
+    // })
+    
+    $.ajax({
+        url: petfinderAPI,
+        method: "GET"
+    })
+        .then(function (response) {
+            var results = response.data;
+            console.log(response);
+        });
+});
 
 var itemCost = $("#itemCost").val(); //this is merely a placeholder until we get the API results
-var itemQuantity = "-"
 var itemCalculated = itemCost * itemQuantity;
 $("#itemTotal").text(itemCalculated);
 
-var quantityCalculated = 0 ;
+var quantityCalculated = 0;
 $("#itemQuantity").text(quantityCalculated);
 $("#quantityButtonPlus").on("click", function () {
     quantityCalculated++;
@@ -64,11 +72,13 @@ $("#quantityButtonMinus").on("click", function () {
 
 console.log("HI!");
 
-
 //=================
-
-var searchGroceriesValue = $("#searchGroceries").val()
 $("#searchGroceriesButton").on("click", function () {
+    alert("This is a placeholder for the API");
+});
+
+
+$("#calculateGroceriesButton").on("click", function () {
     event.preventDefault();
     //MULTIPLYING TOTAL FOR PRODUCT 1
     var itemQuantity1 = $("#itemQuantity1").val().trim();
@@ -76,32 +86,37 @@ $("#searchGroceriesButton").on("click", function () {
     var itemCost1 = $("#itemCost1").text();
     console.log("Cost: " + itemCost1);
     var totalCost1 = itemQuantity1 * itemCost1;
-    console.log("Total: " + totalCost1);
-    $("#totalCost1").text(totalCost1);
+    var totalCostConverted1 = totalCost1.toFixed(2);
+    console.log("Total: " + totalCostConverted1);
+    $("#totalCost1").text(totalCostConverted1);
     console.log("----------");
-    
+
     //MULTIPLYING TOTAL FOR PRODUCT 2
-    var itemQuantity2 = $("#itemQuantity1").val().trim();
+    var itemQuantity2 = $("#itemQuantity2").val().trim();
     console.log("Quantity: " + itemQuantity2);
     var itemCost2 = $("#itemCost2").text();
     console.log("Cost: " + itemCost2);
     var totalCost2 = itemQuantity2 * itemCost2;
-    console.log("Total: " + totalCost2);
-    $("#totalCost2").text(totalCost2);
+    var totalCostConverted2 = totalCost2.toFixed(2);
+    console.log("Total: " + totalCostConverted2);
+    $("#totalCost2").text(totalCostConverted2);
     console.log("----------");
-    
+
     //MULTIPLYING TOTAL FOR PRODUCT 3
-    var itemQuantity3 = $("#itemQuantity1").val().trim();
+    var itemQuantity3 = $("#itemQuantity3").val().trim();
     console.log("Quantity: " + itemQuantity3);
     var itemCost3 = $("#itemCost3").text();
     console.log("Cost: " + itemCost3);
     var totalCost3 = itemQuantity3 * itemCost3;
-    console.log("Total: " + totalCost3);
-    $("#totalCost3").text(totalCost3);
+    var totalCostConverted3 = totalCost3.toFixed(2);
+    console.log("Total: " + totalCostConverted3);
+    $("#totalCost3").text(totalCostConverted3);
     console.log("----------");
+
+    //ADDING TOTAL GROCERY COST BASED ON ALL PRODUCTS
+    totalGroceryCost = +totalCostConverted1 + +totalCostConverted2 + +totalCostConverted3;
+    $("#totalGroceryCost").text(totalGroceryCost).toFixed(2);
 });
-
-
 
 // git checkout -B [branch-name] :: to make a new branch
 // git checkout [branch name] :: to switch branches
@@ -113,4 +128,3 @@ $("#searchGroceriesButton").on("click", function () {
 // cmd+k is to clear out terminal
 //lgtm "looks good to me"; used sometimes in pull requests
 //MVP: "minimum viable product"
-//

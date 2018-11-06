@@ -8,6 +8,10 @@ body {
     background-color: lightgrey;
 }
 
+#barLine {
+    background-color: blue;
+}
+
 #header {
     color: white;
     font-size: 50px;

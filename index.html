@@ -21,13 +21,21 @@
                 <form>
                     <div class="form-group">
                         <label for="exampleInputText1">Grocery Search</label>
-                        <input type="text" class="form-control" id="searchGroceriesValue" placeholder="Search For Items Here!">
+                        <input type="text" class="form-control" id="searchPetsValue" placeholder="Search For Items Here!">
                     </div>
-                    <button type="submit" id="searchGroceriesButton" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="searchPetsButton" class="btn btn-primary">Submit</button>
                 </form>
                 <br>
             </div>
         </div>
+        <hr id="barLine">
+        <br>
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" id="calculateGroceriesButton" class="btn btn-primary">Calculate</button>
+            </div>
+        </div>
+        <br>
         <div class="row">
             <div class="col-12">
                 <table class="table">
@@ -59,7 +67,7 @@
                                 </form>
                             </td>
                             <td id="itemAvailability">Yes</td>
-                            <td><span>$</span><span id="totalCost1"></span></td>
+                            <td><span>$</span><span id="totalCost1">0.00</span></td>
                         </tr>
                         
                         <!-- SECOND -->
@@ -76,7 +84,7 @@
                                 </form>
                             </td>
                             <td>Yes</td>
-                            <td><span>$</span><span id="totalCost2"></span></td>
+                            <td><span>$</span><span id="totalCost2">0.00</span></td>
                         </tr>
                         
                         <!-- THIRD -->
@@ -93,7 +101,16 @@
                                 </form>
                             </td>
                             <td>Yes</td>
-                            <td><span>$</span><span id="totalCost3"></span></td>
+                            <td><span>$</span><span id="totalCost3">0.00</span></td>
+                        </tr>
+                        <tr>
+                            <th>Total Cost:</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><span>$</span><span id="totalGroceryCost">0.00</span></td>
                         </tr>
                     </tbody>
                 </table>
