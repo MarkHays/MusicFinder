@@ -5,8 +5,8 @@ var config = {
     projectId: "walmart-list",
     storageBucket: "gs://walmart-list.appspot.com",
     messagingSenderId: "49914300938",
-  };
-  firebase.initializeApp(config);
+};
+firebase.initializeApp(config);
 
 var database = firebase.database();
 
@@ -16,19 +16,65 @@ var trainEntry = database.ref().push({
 
 // https://console.firebase.google.com/u/0/project/walmart-list/database/walmart-list/data
 
+var GoogleAuth; // Google Auth object.
+function initClient() {
+  gapi.client.init({
+      'apiKey': 'AIzaSyCqNAG9PCjtgym4szadGM-KYmiWgrVYICM',
+      'clientId': '331372522008-h3c3cooqaah3l6o5hp7uftfra53l34s5.apps.googleusercontent.com',
+      'scope': 'https://www.googleapis.com/auth/youtube.force-ssl',
+      'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest']
+  }).then(function () {
+      GoogleAuth = gapi.auth2.getAuthInstance();
 
-var walmartAPI = "http://api.walmartlabs.com/v1/search?apiKey={apiKey}&query={UPC"
-var googleAPI ="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqNAG9PCjtgym4szadGM-KYmiWgrVYICM&callback=initMap"
+      // Listen for sign-in state changes.
+      GoogleAuth.isSignedIn.listen(updateSigninStatus);
+  });
+}
 
-$.ajax({
-    url: walmartAPI,
-    method: "GET"
-})
+GoogleAuth.signIn(alert);
 
-$.ajax({
-    url: googleAPI,
-    method: "GET"
-})
+GoogleAuth.isSignedIn.listen(updateSigninStatus);
+
+var isAuthorized;
+var currentApiRequest;
+
+function sendAuthorizedApiRequest(requestDetails) {
+    currentApiRequest = requestDetails;
+    if (isAuthorized) {
+
+        currentApiRequest = {};
+    } else {
+      GoogleAuth.signIn();
+    }
+  }
+  
+  function updateSigninStatus(isSignedIn) {
+    if (isSignedIn) {
+      isAuthorized = true;
+      if (currentApiRequest) {
+        sendAuthorizedApiRequest(currentApiRequest);
+      }
+    } else {
+      isAuthorized = false;
+    }
+  }
+
+  var request = gapi.client.youtube.channels.list({'part': 'snippet', 'mine': 'true'});
+
+  request.execute(function(response) {
+    console.log(response);
+  });
+  
+  var request = gapi.client.request({
+    'method': 'GET',
+    'path': /youtube/v3/channels,
+    'params': {'part': 'snippet', 'mine': 'true'}
+  });
+
+  request.execute(function(response) {
+    console.log(response);
+  });
+  
 
 
 
@@ -65,7 +111,7 @@ console.log("HI!");
 //=================
 
 var searchGroceriesValue = $("#searchGroceries").val().trim();
-$("#searchGroceriesButton").on("click", function() {
+$("#searchGroceriesButton").on("click", function () {
 
 });
 
