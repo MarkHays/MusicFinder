@@ -17,9 +17,11 @@
 
 $("#searchMusixMatchButton").on("click", function() {
     event.preventDefault();
-    var APIKey = "649aebb6c93238abb42f188056ea802a";
+    var musixAPIKey = "649aebb6c93238abb42f188056ea802a";
+    var youTubeAPIKey = "AIzaSyCqNAG9PCjtgym4szadGM-KYmiWgrVYICM"
     var searchMusixMatch = $("#searchMusixMatchValue").val().trim();
-    var MusixMatchURL = "http://api.musixmatch.com/ws/1.1/search?q=" + searchMusixMatch + "&apikey=" + APIKey;
+    var MusixMatchURL = "http://api.musixmatch.com/ws/1.1/search?q=" + searchMusixMatch + "&apikey=" + musixAPIKey;
+    var youTubeURL =  "https://www.googleapis.com/youtube/v3/search?part=snippet&key=" + youTubeAPIKey + "&q=" + searchMusixMatch;
 
     $.ajax({
         url: MusixMatchURL,
@@ -30,7 +32,20 @@ $("#searchMusixMatchButton").on("click", function() {
             console.log(response);
             console.log(results);
         });
+
+    $.ajax({
+        url: youTubeURL ,
+        method: "GET"
+    })
+      .then(function(){
+          var ytResults = response.data;
+          console.log(response)
+          console.log(ytResults)
+      })
 });
+
+
+
 
 // // var itemCost = $("#itemCost").val(); //this is merely a placeholder until we get the API results
 // // var itemCalculated = itemCost * itemQuantity;
