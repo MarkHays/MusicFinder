@@ -23,15 +23,15 @@ $("#searchMusixMatchButton").on("click", function () {
     var MusixMatchURL = "http://api.musixmatch.com/ws/1.1/search?q=" + searchMusixMatch + "&apikey=" + musixAPIKey;
     var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&key=" + youTubeAPIKey + "&q=" + searchMusixMatch;
 
-    // $.ajax({
-    //     url: MusixMatchURL,
-    //     method: "GET"
-    // })
-    //     .then(function (response) {
-    //         var mmResults = response.data;
-    //         console.log(response);
-    //         console.log(mmResults);
-    //     });
+    $.ajax({
+        url: MusixMatchURL,
+        method: "GET"
+    })
+        .then(function (response) {
+            var mmResults = response.data;
+            console.log(response);
+            console.log(mmResults);
+        });
 
     $.ajax({
         url: youTubeURL,
@@ -49,11 +49,16 @@ $("#searchMusixMatchButton").on("click", function () {
                 var videoThumbnail = ytResults[j].snippet.thumbnails.medium.url;
                 var videoThumbnailTag = $("<img>").attr("src", videoThumbnail);
                 var videoPlayer = $("<iframe>").attr({
-                        src: "https://www.youtube.com/watch?v=" + videoId,
+                        // src: "https://www.youtube.com/embed/BRNVlUSba4I?start=47",
+                        src: "https://www.youtube.com/embed/" + videoId,
+                        width: "560",
+                        height: "315",
+                        alt: videoTitle,
                         frameborder: "0",
                         allow: "autoplay; encrypted-media",
                         // allowfullscreen
                     })
+                // videoPlayer.setAttribute("allowfullscreen");
                     $("#emptyDiv").prepend(
                         $("<div>").text(videoTitle),
                         $("<div>").append(videoLink),
