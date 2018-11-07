@@ -15,13 +15,13 @@
 
 // //https://console.firebase.google.com/u/0/project/walmart-list/database/walmart-list/data
 
-$("#searchMusixMatchButton").on("click", function () {
+$("#searchButton").on("click", function () {
     event.preventDefault();
     var musixAPIKey = "649aebb6c93238abb42f188056ea802a";
     var youTubeAPIKey = "AIzaSyCqNAG9PCjtgym4szadGM-KYmiWgrVYICM"
-    var searchMusixMatch = $("#searchMusixMatchValue").val().trim();
-    var MusixMatchURL = "http://api.musixmatch.com/ws/1.1/search?q=" + searchMusixMatch + "&apikey=" + musixAPIKey;
-    var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&key=" + youTubeAPIKey + "&q=" + searchMusixMatch;
+    var searchValue = $("#searchValue").val().trim();
+    var MusixMatchURL = "http://api.musixmatch.com/ws/1.1/search?q=" + searchValue + "&apikey=" + musixAPIKey;
+    var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&key=" + youTubeAPIKey + "&q=" + searchValue;
 
     $.ajax({
         url: MusixMatchURL,
@@ -44,27 +44,27 @@ $("#searchMusixMatchButton").on("click", function () {
             for (j = 0; j < ytResults.length; j++) {
                 var videoTitle = ytResults[j].snippet.title;
                 var videoId = ytResults[j].id.videoId;
+                var videoDescription = ytResults[j].snippet.description;
                 var videoLink = $("").attr("href", "https://www.youtube.com/watch?v=" + videoId)
                     videoLink.text("https://www.youtube.com/watch?v=" + videoId);
                 var videoThumbnail = ytResults[j].snippet.thumbnails.medium.url;
                 var videoThumbnailTag = $("<img>").attr("src", videoThumbnail);
                 var videoPlayer = $("<iframe>").attr({
-                        // src: "https://www.youtube.com/embed/BRNVlUSba4I?start=47",
-                        src: "https://www.youtube.com/embed/" + videoId,
+                        src: "https://www.youtube.com/embed/" + videoId + "?rel=0",
                         width: "560",
                         height: "315",
-                        alt: videoTitle,
+                        alt: "This video is not available at the moment",
                         frameborder: "0",
                         allow: "autoplay; encrypted-media",
                         // allowfullscreen
                     })
-                // videoPlayer.setAttribute("allowfullscreen");
                     $("#emptyDiv").prepend(
                         $("<div>").text(videoTitle),
                         $("<div>").append(videoLink),
                         $("<div>").append(videoThumbnailTag),
                         $("<br>"),
                         $("<div>").append(videoPlayer),
+                        $("<div>").append("Description: " + videoDescription),
                         $("<br>")
                     );
             }
