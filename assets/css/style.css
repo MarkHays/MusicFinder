@@ -4,6 +4,10 @@
     width: 75px;
 }
 
+img {
+	width: 200px;
+}
+
 #searchTab {
 	color: white;
 }
