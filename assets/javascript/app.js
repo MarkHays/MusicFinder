@@ -40,7 +40,7 @@ $("#searchMusixMatchButton").on("click", function () {
         .then(function (response) {
             var ytResults = response.items;
             console.log(response);
-
+            $("#emptyDiv").text("");
             for (j = 0; j < ytResults.length; j++) {
                 var videoTitle = ytResults[j].snippet.title;
                 var videoId = ytResults[j].id.videoId;
@@ -54,8 +54,7 @@ $("#searchMusixMatchButton").on("click", function () {
                         allow: "autoplay; encrypted-media",
                         // allowfullscreen
                     })
-
-                    $("#emptyDiv").append(
+                    $("#emptyDiv").prepend(
                         $("<div>").text(videoTitle),
                         $("<div>").append(videoLink),
                         $("<div>").append(videoThumbnailTag),
