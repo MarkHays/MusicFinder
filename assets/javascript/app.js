@@ -68,7 +68,13 @@ $("#searchButton").on("click", function () {
                         height: "315",
                         frameborder: "0",
                         allow: "autoplay; encrypted-media",
+
                         allowfullscreen: ""
+
+                  
+                  
+                  
+     
                     })
                     $("#emptyDiv").prepend(
                         $("<h2>").text(videoTitle),
