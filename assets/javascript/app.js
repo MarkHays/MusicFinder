@@ -23,8 +23,6 @@ $("#searchButton").on("click", function () {
     var MusixMatchURL = "http://api.musixmatch.com/ws/1.1/search?q=" + searchValue + "&apikey=" + musixAPIKey;
     var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&key=" + youTubeAPIKey + "&q=" + searchValue;
 
-    // maxResults=25&type=video&videoSyndicated=true&videoEmbeddable=true&videoCategoryId=10&key=
-
     $.ajax({
         url: MusixMatchURL,
         method: "GET"
@@ -52,9 +50,9 @@ $("#searchButton").on("click", function () {
                 }
                 var videoLink = $("<a>").attr("href", "https://www.youtube.com/watch?v=" + videoId);
                     videoLink.attr("target", "_blank");
-                    videoLink.attr("permission", "allowed");
-                    videoLink.attr("videoEmbeddable", true);
-                    videoLink.attr("videoSyndicated", true);
+                    // videoLink.attr("permission", "allowed");
+                    // videoLink.attr("videoEmbeddable", true);
+                    // videoLink.attr("videoSyndicated", true);
                     videoLink.text("https://www.youtube.com/watch?v=" + videoId);
                 var videoThumbnail = ytResults[j].snippet.thumbnails.medium.url;
                 var videoThumbnailTag = $("<img>").attr("src", videoThumbnail);
