@@ -4,8 +4,28 @@
     width: 75px;
 }
 
-#searchTab {
+hr {
+	background-color: red;
+	border-width: 3px;
+}
+
+h3, a {
 	color: white;
+}
+
+.loadingStyle {
+	background-image: url("https://static.thenounproject.com/png/20724-200.png");
+	background-repeat: no-repeat;
+}
+
+a:hover {
+	color: red;
+}
+
+#searchTab {
+	color: black;
+	font-weight: bold;
+	font-size: 20px;
 }
 
 body {
@@ -13,28 +33,30 @@ body {
 }
 
 #barLine {
-    background-color: blue;
+    background-color: #ff0101;
 }
 
 #header {
-    color: white;
+    color: black;
     font-size: 50px;
     padding: 20 0 20 0;
     text-align: center;
-    background: #0000ff;
+	background: #ff0101;
+	font-weight: bold;
 }
 #exampleInputText1 {
     text-align: center;
 }
 .btn-primary {
-    background: #0000ff;
+    background: #ff0101;
 }
 
 label {
-    background: #0000ff;
+    background: #ff0101;
     height: 30px;
     width: 100%;
-    text-align: center;
+	text-align: center;
+	color: black;
 }
 
 .table {
