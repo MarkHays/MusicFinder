@@ -19,15 +19,22 @@ $("#searchButton").on("click", function () {
     event.preventDefault();
     var musixAPIKey = "649aebb6c93238abb42f188056ea802a";
     var youTubeAPIKey = "AIzaSyCqNAG9PCjtgym4szadGM-KYmiWgrVYICM"
-    var searchValue = $("#searchValue").val().trim();
+    var artist = $("#artist-name").val().trim()
+    var song = $("#song-name").val().trim()
+    var album =  $("#album-name").val().trim()
+    var searchValue = song + artist+ album
+
     var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&key=" + youTubeAPIKey + "&q=" + searchValue;
+
 
     $.ajax({
         url: "https://api.musixmatch.com/ws/1.1/track.search",
         method: "GET",
         data: {
             apikey: musixAPIKey,
-            q_artist: searchValue,
+            q_artist: artist,
+            q_album: album,
+            q_track: song,
             format:"jsonp",
             callback:"jsonp_callback"
         }
