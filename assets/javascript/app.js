@@ -22,7 +22,7 @@ $("#searchButton").on("click", function () {
     var artist = $("#artist-name").val().trim()
     var song = $("#song-name").val().trim()
     var album =  $("#album-name").val().trim()
-    var searchValue = song + artist+ album
+    var searchValue = song + artist + album
 
     var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&key=" + youTubeAPIKey + "&q=" + searchValue;
 
