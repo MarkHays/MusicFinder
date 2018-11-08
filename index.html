@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
 </head>
@@ -16,17 +17,16 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="fadeInDown animated card-header border-success" id="header" style="background: #ff0101">Find That Music Video</div>
+                <div class="fadeInDown animated card-header border-success" id="header" style="background: #ff0101">Find That Music!</div>
                 <br>
                 <br>
                 <form>
                     <div class="form-group">
-                        <label for="exampleInputText1" class="shake animated" id="searchTab">MusixMatch Lyric Search</label>
-                        <input type="text" class="form-control flash animated" id="song-name" placeholder="Song Name">
-
-                        <input type="text" class="form-control flash animated" id="artist-name" placeholder="Artist Name">
-
-                        <input type="text" class="form-control flash animated" id="album-name" placeholder="Album Name">
+                        <label for="exampleInputText1" class="shake animated" id="searchTab">Music Search Form</label>
+                        <div id="noteFill" class="flash animated">Note: You don't need to fill in every textbox</div>
+                        <input type="text" class="form-control flash animated" id="song-name" placeholder="Search For Track Here!">
+                        <input type="text" class="form-control flash animated" id="artist-name" placeholder="Search For Artist Here!">
+                        <input type="text" class="form-control flash animated" id="album-name" placeholder="Search For Album Here!">
                     </div>
                     <button type="submit" id="searchButton" class="btn btn-primary tada animated">Submit</button>
                 </form>

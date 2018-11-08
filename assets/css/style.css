@@ -4,6 +4,18 @@
     width: 75px;
 }
 
+#noteFill {
+	font-family: 'Anton', sans-serif;
+	letter-spacing: 0.5px;
+	color: white;
+	text-decoration: underline;
+}
+
+.form-control {
+	width: 100%;
+	margin: 10px 0px 10px 0px;
+}
+
 hr {
 	background-color: red;
 	border-width: 3px;
