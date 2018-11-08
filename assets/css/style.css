@@ -4,6 +4,24 @@
     width: 75px;
 }
 
+hr {
+	background-color: red;
+	border-width: 3px;
+}
+
+h3, a {
+	color: white;
+}
+
+.loadingStyle {
+	background-image: url("https://static.thenounproject.com/png/20724-200.png");
+	background-repeat: no-repeat;
+}
+
+a:hover {
+	color: red;
+}
+
 #searchTab {
 	color: black;
 	font-weight: bold;
