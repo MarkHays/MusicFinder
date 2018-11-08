@@ -56,6 +56,8 @@ $("#searchButton").on("click", function () {
                         alt: "This video is not available at the moment",
                         frameborder: "0",
                         allow: "autoplay; encrypted-media",
+                        color: "white",
+                        modestbranding: "1",
                         // allowfullscreen
                     })
                     $("#emptyDiv").prepend(

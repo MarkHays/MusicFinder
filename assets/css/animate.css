@@ -110,6 +110,7 @@
 .flash {
   -webkit-animation-name: flash;
   animation-name: flash;
+  animation-delay: 3s;
 }
 
 /* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
@@ -285,6 +286,7 @@
 .shake {
   -webkit-animation-name: shake;
   animation-name: shake;
+  animation-delay: 2s;
 }
 
 @-webkit-keyframes headShake {
@@ -488,6 +490,7 @@
 .tada {
   -webkit-animation-name: tada;
   animation-name: tada;
+  animation-delay: 4s;
 }
 
 /* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
