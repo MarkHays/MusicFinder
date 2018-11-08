@@ -45,7 +45,12 @@ $("#searchButton").on("click", function () {
                 var videoTitle = ytResults[j].snippet.title;
                 var videoId = ytResults[j].id.videoId;
                 var videoDescription = ytResults[j].snippet.description;
-                var videoLink = $("").attr("href", "https://www.youtube.com/watch?v=" + videoId)
+                if (videoDescription === "") {
+                    var videoDescription = "[No Description Given]";
+                }
+                var videoLink = $("<a>").attr("href", "https://www.youtube.com/watch?v=" + videoId);
+                    videoLink.attr("target", "_blank");
+                    videoLink.attr("permission", "allowed");
                     videoLink.text("https://www.youtube.com/watch?v=" + videoId);
                 var videoThumbnail = ytResults[j].snippet.thumbnails.medium.url;
                 var videoThumbnailTag = $("<img>").attr("src", videoThumbnail);
@@ -56,15 +61,17 @@ $("#searchButton").on("click", function () {
                         alt: "This video is not available at the moment",
                         frameborder: "0",
                         allow: "autoplay; encrypted-media",
-                        // allowfullscreen
+                        allowfullscreen: ""
                     })
                     $("#emptyDiv").prepend(
-                        $("<div>").text(videoTitle),
+                        $("<h2>").text(videoTitle),
                         $("<div>").append(videoLink),
                         $("<div>").append(videoThumbnailTag),
                         $("<br>"),
                         $("<div>").append(videoPlayer),
                         $("<div>").append("Description: " + videoDescription),
+                        $("<br>"),
+                        $("<br>"),
                         $("<br>")
                     );
             }

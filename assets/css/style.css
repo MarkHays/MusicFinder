@@ -4,6 +4,14 @@
     width: 75px;
 }
 
+h3, a {
+	color: white;
+}
+
+a:hover {
+	color: yellow;
+}
+
 #searchTab {
 	color: white;
 }
