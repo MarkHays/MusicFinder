@@ -20,12 +20,18 @@ $("#searchButton").on("click", function () {
     var musixAPIKey = "649aebb6c93238abb42f188056ea802a";
     var youTubeAPIKey = "AIzaSyCqNAG9PCjtgym4szadGM-KYmiWgrVYICM"
     var searchValue = $("#searchValue").val().trim();
-    var MusixMatchURL = "http://api.musixmatch.com/ws/1.1/search?q=" + searchValue + "&apikey=" + musixAPIKey;
     var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&key=" + youTubeAPIKey + "&q=" + searchValue;
 
     $.ajax({
-        url: MusixMatchURL,
-        method: "GET"
+        url: "https://api.musixmatch.com/ws/1.1/track.search",
+        method: "GET",
+        data: {
+            apikey: musixAPIKey,
+            q_artist: searchValue,
+            format:"jsonp",
+            callback:"jsonp_callback"
+        }
+        
     })
         .then(function (response) {
             var mmResults = response.data;
