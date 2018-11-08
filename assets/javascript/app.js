@@ -31,7 +31,7 @@ $("#searchButton").on("click", function () {
             format:"jsonp",
             callback:"jsonp_callback"
         }
-        
+
     })
         .then(function (response) {
             var mmResults = response.data;
