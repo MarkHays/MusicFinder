@@ -54,7 +54,7 @@ $("#searchButton").on("click", function () {
             var ytResults = response.items;
             console.log(response);
             $("#emptyDiv").text("");
-            $("#emptyDiv").append("<h1 id='videoHeaderStyle'>Video Results:</h2>");
+            $("#emptyDiv").append("<h1 id='videoHeaderStyle'>Video Results:</h1>");
             for (j = 0; j < ytResults.length; j++) {
                 var videoTitle = ytResults[j].snippet.title;
                 var videoId = ytResults[j].id.videoId;
