@@ -24,45 +24,27 @@ $("#searchButton").on("click", function () {
     var album = $("#album-name").val().trim()
     var searchValue = song + artist + album
 
-    var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&key=" + youTubeAPIKey + "&q=" + searchValue;
+    var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&key=" + youTubeAPIKey + "&q=" + searchValue;
 
-    // $(document).ready(function() {
-    //     $(".btn").click(function() {
-    //       $.ajax({type: "get",
-    //               url: "http://api.forismatic.com/api/1.0/",
-    //               data: {method: "getQuote",format: "jsonp",lang: "en"},
-    //               dataType: "jsonp",
-    //               jsonp: "jsonp",
-    //               jsonpCallback: "myJsonMethod"
-    //       }); 
-    //     });
-    //   });
-    //   function myJsonMethod(response){
-    //     console.log (response);
-    //   }
-
-
+    // Using JSONP
     $.ajax({
-        url: "https://api.musixmatch.com/ws/1.1/track.search",
-        method: "GET",
+        url: "https://api.musixmatch.com/ws/1.1/track.search", 
         data: {
             apikey: musixAPIKey,
             q_artist: artist,
             q_album: album,
             q_track: song,
             format: "jsonp",
-            lang: "en" 
         },
-        dataType: "jsonp",
-        jsonp: "jsonp",
-        jsonpCallback: "myJsonMethod"
+        dataType: 'jsonp',
+        jsonp: 'jsonp_callback',
+        success: function (r){
+            console.log(r);
+        }
     });
-    function myJsonMethod(response) {
-        console.log(response);
-    }
-
+    
     // $.ajax({
-    //     url: "https://api.musixmatch.com/ws/1.1/track.search",
+    //     url: "https://api.musixmatch.com/ws/1.1/track.search?callback=jsonp_callback",
     //     method: "GET",
     //     data: {
     //         apikey: musixAPIKey,
@@ -70,14 +52,11 @@ $("#searchButton").on("click", function () {
     //         q_album: album,
     //         q_track: song,
     //         format: "jsonp",
-    //         lang: "en",
-    //         callback: "function"
     //     }
     // })
     //     .then(function (response) {
-    //         // var mmResults = response.jsonp_callback.message.body.track_list;
-    //         console.log("HI!");
     //         console.log(response);
+    //         var mmResults = response.jsonp_callback.message.body.track_list;
     //         // for (i = 0; i < mmResults.length; i++) {
     //         //     console.log(mmResults[i].track.lyrics_id);
     //         //     console.log("-----------");
@@ -92,7 +71,7 @@ $("#searchButton").on("click", function () {
             var ytResults = response.items;
             console.log(response);
             $("#emptyDiv").text("");
-            $("#emptyDiv").append("<h1 id='videoHeaderStyle'>Video Results!</h2>");
+            $("#emptyDiv").append("<h1 id='videoHeaderStyle'>Video Results:</h2>");
             for (j = 0; j < ytResults.length; j++) {
                 var videoTitle = ytResults[j].snippet.title;
                 var videoId = ytResults[j].id.videoId;
@@ -108,20 +87,20 @@ $("#searchButton").on("click", function () {
                 videoLink.text("https://www.youtube.com/watch?v=" + videoId);
                 var videoThumbnail = ytResults[j].snippet.thumbnails.medium.url;
                 var videoThumbnailTag = $("<img>").attr("src", videoThumbnail);
-                var videoPlayer = $("<iframe>").attr({
-                    src: "https://www.youtube.com/embed/" + videoId + "?rel=0",
-                    width: "560",
-                    height: "315",
-                    frameborder: "0",
-                    allow: "autoplay; encrypted-media",
-                    allowfullscreen: ""
-                })
+                // var videoPlayer = $("<iframe>").attr({
+                //     src: "https://www.youtube.com/embed/" + videoId + "?rel=0",
+                //     width: "560",
+                //     height: "315",
+                //     frameborder: "0",
+                //     allow: "autoplay; encrypted-media",
+                //     allowfullscreen: ""
+                // })
                 $("#emptyDiv").append(
                     $("<h2>").text(videoTitle),
                     $("<div>").append(videoLink),
                     $("<div>").append(videoThumbnailTag),
                     $("<br>"),
-                    $("<div class='loadingStyle'>").append(videoPlayer),
+                    // $("<div class='loadingStyle'>").append(videoPlayer),
                     $("<div>").append("Description: " + videoDescription),
                     $("<br>"),
                     $("<hr>"),
