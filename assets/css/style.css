@@ -105,6 +105,11 @@ input[type=text] {
 	border-color: black;
 }
 
+#noteFill {
+    letter-spacing: 0.5px;
+    color: white;
+    text-decoration: underline;
+}
 @-webkit-keyframes Gradient {
 	0% {
 		background-position: 0% 50%
