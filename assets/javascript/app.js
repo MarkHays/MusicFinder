@@ -26,42 +26,25 @@ $("#searchButton").on("click", function () {
 
     var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&key=" + youTubeAPIKey + "&q=" + searchValue;
 
-    // Using JSONP
     $.ajax({
-        url: "https://api.musixmatch.com/ws/1.1/track.search", 
+        url: "https://api.musixmatch.com/ws/1.1/track.search",
+        dataType: "jsonp",
         data: {
             apikey: musixAPIKey,
             q_artist: artist,
             q_album: album,
             q_track: song,
-            format: "jsonp",
         },
-        dataType: 'jsonp',
-        jsonp: 'jsonp_callback',
-        success: function (r){
-            console.log(r);
-        }
+        success: padded_callback,
     });
-    
-    // $.ajax({
-    //     url: "https://api.musixmatch.com/ws/1.1/track.search?callback=jsonp_callback",
-    //     method: "GET",
-    //     data: {
-    //         apikey: musixAPIKey,
-    //         q_artist: artist,
-    //         q_album: album,
-    //         q_track: song,
-    //         format: "jsonp",
-    //     }
-    // })
-    //     .then(function (response) {
-    //         console.log(response);
-    //         var mmResults = response.jsonp_callback.message.body.track_list;
-    //         // for (i = 0; i < mmResults.length; i++) {
-    //         //     console.log(mmResults[i].track.lyrics_id);
-    //         //     console.log("-----------");
-    //         // }
-    //     });
+    function padded_callback(response) {
+        console.log(response);
+        var mmResults = response.message.body.track_list;
+        for (i = 0; i < mmResults.length; i++) {
+            console.log(mmResults[i].track.lyrics_id);
+            console.log("-----------");
+        }
+    }   
 
     $.ajax({
         url: youTubeURL,
