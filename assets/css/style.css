@@ -4,6 +4,10 @@
     width: 75px;
 }
 
+#emptyDiv {
+	background-color: #f3f0ea;
+}
+
 #noteFill {
 	font-family: 'Anton', sans-serif;
 	letter-spacing: 0.5px;
@@ -21,8 +25,8 @@ hr {
 	border-width: 3px;
 }
 
-h3, a {
-	color: white;
+h2, a {
+	color: grey;
 }
 
 .loadingStyle {
@@ -44,12 +48,22 @@ body {
     background-color: lightgrey;
 }
 
+#videoHeaderStyle {
+	color: red;
+	text-decoration: underline;
+	font-family: helvetica;
+}
+
 #barLine {
     background-color: #ff0101;
 }
 
+#searchTab {
+	color: #dec;
+}
+
 #header {
-    color: black;
+	color:#dec;
     font-size: 50px;
     padding: 20 0 20 0;
     text-align: center;
@@ -122,3 +136,41 @@ body {
 		background-position: 0% 50%
 	}
 }
+
+
+
+/* .lds-ring {
+	display: inline-block;
+	position: relative;
+	width: 64px;
+	height: 64px;
+  }
+  .lds-ring div {
+	box-sizing: border-box;
+	display: block;
+	position: absolute;
+	width: 51px;
+	height: 51px;
+	margin: 6px;
+	border: 6px solid #fff;
+	border-radius: 50%;
+	animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+	border-color: #fff transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+	animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+	animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+	animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+	0% {
+	  transform: rotate(0deg);
+	}
+	100% {
+	  transform: rotate(360deg);
+	}
+  } */
