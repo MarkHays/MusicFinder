@@ -110,7 +110,6 @@
 .flash {
   -webkit-animation-name: flash;
   animation-name: flash;
-  animation-delay: 3s;
 }
 
 /* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
@@ -152,6 +151,7 @@
 .pulse {
   -webkit-animation-name: pulse;
   animation-name: pulse;
+  animation-delay: 3s;
 }
 
 @-webkit-keyframes rubberBand {
