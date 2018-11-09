@@ -59,6 +59,7 @@ body {
 	margin-top: 10px;
 	border: solid 2px;
 	border-color: black;
+	width: 100%;
 }
 #exampleInputText1 {
     text-align: center;
