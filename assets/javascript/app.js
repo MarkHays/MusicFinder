@@ -19,19 +19,25 @@ $("#searchButton").on("click", function () {
     event.preventDefault();
     var musixAPIKey = "649aebb6c93238abb42f188056ea802a";
     var youTubeAPIKey = "AIzaSyCqNAG9PCjtgym4szadGM-KYmiWgrVYICM"
-    var searchValue = $("#searchValue").val().trim();
+    var artist = $("#artist-name").val().trim()
+    var song = $("#song-name").val().trim()
+    var album =  $("#album-name").val().trim()
+    var searchValue = song + artist+ album
+
     var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&key=" + youTubeAPIKey + "&q=" + searchValue;
+
 
     $.ajax({
         url: "https://api.musixmatch.com/ws/1.1/track.search",
         method: "GET",
         data: {
             apikey: musixAPIKey,
-            q_artist: searchValue,
+            q_artist: artist,
+            q_album: album,
+            q_track: song,
             format:"jsonp",
             callback:"jsonp_callback"
         }
-        
     })
         .then(function (response) {
             var mmResults = response.data;
@@ -68,13 +74,7 @@ $("#searchButton").on("click", function () {
                         height: "315",
                         frameborder: "0",
                         allow: "autoplay; encrypted-media",
-
                         allowfullscreen: ""
-
-                  
-                  
-                  
-     
                     })
                     $("#emptyDiv").prepend(
                         $("<h2>").text(videoTitle),
@@ -90,25 +90,3 @@ $("#searchButton").on("click", function () {
             }
         })
 });
-
-//============
-//GIT COMMANDS
-//============
-
-// git checkout -B [branch-name] :: to make a new branch
-// git checkout [branch name] :: to switch branches
-// git merge [branch name] :: to merge [branch name] into the current branch you're on from "git checkout"
-// git status :: shows what needs to be done
-// git add -A :: to add your new content
-// git commit -m "placeholder" :: to commit your new content
-// git push origin [branch-name] :: to push changes to a/your branch
-// git branch :: to show in (in green) what branch you are currently on
-
-//============================
-//OTHER SHORTCUTS AND COMMANDS
-//============================
-
-// code . in order to open up in vs code
-// cmd+k is to clear out terminal
-// lgtm "looks good to me"; used sometimes in pull requests
-// mvp: "minimum viable product"
