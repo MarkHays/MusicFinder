@@ -27,7 +27,7 @@ $("#searchButton").on("click", function () {
     var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&key=" + youTubeAPIKey + "&q=" + searchValue;
 
     $.ajax({
-        url: "https://api.musixmatch.com/ws/1.1/track.search",
+        url: "https://api.musixmatch.com/ws/1.1/track.search?callback=padded_callback",
         dataType: "jsonp",
         data: {
             apikey: musixAPIKey,
