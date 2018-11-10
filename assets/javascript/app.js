@@ -24,37 +24,40 @@ $("#searchButton").on("click", function () {
     var album = $("#album-name").val().trim()
     var searchValue = song + artist + album
 
-    var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&key=" + youTubeAPIKey + "&q=" + searchValue;
+    var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&key=" + youTubeAPIKey + "&q=" + searchValue;
 
     $.ajax({
-        url: "https://api.musixmatch.com/ws/1.1/track.search",
-        dataType: "jsonp",
-        data: {
-            apikey: musixAPIKey,
-            q_artist: artist,
-            q_album: album,
-            q_track: song,
-        },
-        success: padded_callback,
-    });
-    function padded_callback(response) {
-        console.log(response);
-        var mmResults = response.message.body.track_list;
-        for (i = 0; i < mmResults.length; i++) {
-            console.log(mmResults[i].track.lyrics_id);
-            console.log("-----------");
+        url: 'https://api.musixmatch.com/ws/1.1/track.search?apikey=649aebb6c93238abb42f188056ea802a&q_artist=prince&callback=padded_callback&format=jsonp',
+        dataType: 'JSONP',
+        jsonpCallback: 'callback',
+        type: 'GET',
+        success: function (response) {
+            console.log(response);
+            var mmResults = response.message.body.track_list;
+            for (i = 0; i < mmResults.length; i++) {
+                console.log(mmResults[i].track.lyrics_id);
+                console.log("-----------");
+            }
         }
-    }   
-
+    });
+    
     $.ajax({
         url: youTubeURL,
         method: "GET"
     })
+<<<<<<< HEAD
         .then(function (response) {
             var ytResults = response.items;
             console.log(response);
             $("#emptyDiv").text("");
             $("#emptyDiv").append("<h1 id='videoHeaderStyle'>Video Results:</h1>");
+=======
+    .then(function (response) {
+        var ytResults = response.items;
+        console.log(response);
+        $("#emptyDiv").text("");
+            $("#emptyDiv").append("<h1 id='videoHeaderStyle'>Video Results:</h2>");
+>>>>>>> master
             for (j = 0; j < ytResults.length; j++) {
                 var videoTitle = ytResults[j].snippet.title;
                 var videoId = ytResults[j].id.videoId;
@@ -64,26 +67,26 @@ $("#searchButton").on("click", function () {
                 }
                 var videoLink = $("<a>").attr("href", "https://www.youtube.com/watch?v=" + videoId);
                 videoLink.attr("target", "_blank");
-                // videoLink.attr("permission", "allowed");
-                // videoLink.attr("videoEmbeddable", true);
-                // videoLink.attr("videoSyndicated", true);
-                videoLink.text("https://www.youtube.com/watch?v=" + videoId);
-                var videoThumbnail = ytResults[j].snippet.thumbnails.medium.url;
-                var videoThumbnailTag = $("<img>").attr("src", videoThumbnail);
-                // var videoPlayer = $("<iframe>").attr({
-                //     src: "https://www.youtube.com/embed/" + videoId + "?rel=0",
-                //     width: "560",
-                //     height: "315",
-                //     frameborder: "0",
-                //     allow: "autoplay; encrypted-media",
-                //     allowfullscreen: ""
-                // })
+                videoLink.attr("permission", "allowed");
+                 videoLink.attr("videoEmbeddable", true);
+                 videoLink.attr("videoSyndicated", true);
+                 videoLink.text("https://www.youtube.com/watch?v=" + videoId);
+                 // var videoThumbnail = ytResults[j].snippet.thumbnails.medium.url;
+                 //   var videoThumbnailTag = $("<img>").attr("src", videoThumbnail);
+                 var videoPlayer = $("<iframe>").attr({
+                     src: "https://www.youtube.com/embed/" + videoId + "?rel=0",
+                    width: "560",
+                    height: "315",
+                    frameborder: "0",
+                    allow: "autoplay; encrypted-media",
+                    allowfullscreen: ""
+                })
                 $("#emptyDiv").append(
                     $("<h2>").text(videoTitle),
                     $("<div>").append(videoLink),
-                    $("<div>").append(videoThumbnailTag),
+                    //$("<div>").append(videoThumbnailTag),
                     $("<br>"),
-                    // $("<div class='loadingStyle'>").append(videoPlayer),
+                    $("<div class='loadingStyle'>").append(videoPlayer),
                     $("<div>").append("Description: " + videoDescription),
                     $("<br>"),
                     $("<hr>"),
