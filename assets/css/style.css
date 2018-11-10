@@ -5,7 +5,7 @@
 }
 
 #emptyDiv {
-	background-color: #f3f0ea;
+	/*background-color: #f3f0ea;*/
 }
 
 #noteFill {
@@ -46,7 +46,7 @@ a:hover {
 }
 
 body {
-    background-color: lightgrey;
+
 }
 
 #videoHeaderStyle {
@@ -60,11 +60,11 @@ body {
 }
 
 #searchTab {
-	color: #dec;
+	color: black;
 }
 
 #header {
-	color:#dec;
+	color: black;
     font-size: 50px;
     padding: 20 0 20 0;
     text-align: center;
@@ -93,7 +93,7 @@ label {
 }
 
 .table {
-    background: white;
+    /*background: white;*/
 }
 
 body {

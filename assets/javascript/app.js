@@ -64,26 +64,26 @@ $("#searchButton").on("click", function () {
                 }
                 var videoLink = $("<a>").attr("href", "https://www.youtube.com/watch?v=" + videoId);
                 videoLink.attr("target", "_blank");
-                // videoLink.attr("permission", "allowed");
-                // videoLink.attr("videoEmbeddable", true);
-                // videoLink.attr("videoSyndicated", true);
+                videoLink.attr("permission", "allowed");
+                 videoLink.attr("videoEmbeddable", true);
+                videoLink.attr("videoSyndicated", true);
                 videoLink.text("https://www.youtube.com/watch?v=" + videoId);
-                var videoThumbnail = ytResults[j].snippet.thumbnails.medium.url;
-                var videoThumbnailTag = $("<img>").attr("src", videoThumbnail);
-                // var videoPlayer = $("<iframe>").attr({
-                //     src: "https://www.youtube.com/embed/" + videoId + "?rel=0",
-                //     width: "560",
-                //     height: "315",
-                //     frameborder: "0",
-                //     allow: "autoplay; encrypted-media",
-                //     allowfullscreen: ""
-                // })
+               // var videoThumbnail = ytResults[j].snippet.thumbnails.medium.url;
+             //   var videoThumbnailTag = $("<img>").attr("src", videoThumbnail);
+                var videoPlayer = $("<iframe>").attr({
+                    src: "https://www.youtube.com/embed/" + videoId + "?rel=0",
+                    width: "560",
+                    height: "315",
+                    frameborder: "0",
+                    allow: "autoplay; encrypted-media",
+                    allowfullscreen: ""
+                })
                 $("#emptyDiv").append(
                     $("<h2>").text(videoTitle),
                     $("<div>").append(videoLink),
-                    $("<div>").append(videoThumbnailTag),
+                    //$("<div>").append(videoThumbnailTag),
                     $("<br>"),
-                    // $("<div class='loadingStyle'>").append(videoPlayer),
+                    $("<div class='loadingStyle'>").append(videoPlayer),
                     $("<div>").append("Description: " + videoDescription),
                     $("<br>"),
                     $("<hr>"),
