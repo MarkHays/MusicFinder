@@ -21,8 +21,7 @@ $("#searchButton").on("click", function () {
     var youTubeAPIKey = "AIzaSyCqNAG9PCjtgym4szadGM-KYmiWgrVYICM"
     var artist = $("#artist-name").val().trim()
     var song = $("#song-name").val().trim()
-    var album =  $("#album-name").val().trim()
-    var searchValue = song + artist+ album
+    var searchValue = song + artist
 
     var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&key=" + youTubeAPIKey + "&q=" + searchValue;
 
@@ -33,17 +32,24 @@ $("#searchButton").on("click", function () {
         data: {
             apikey: musixAPIKey,
             q_artist: artist,
-            q_album: album,
             q_track: song,
-            format:"jsonp",
-            callback:"jsonp_callback"
-        }
-        
+            format: "jsonp",
+            callback: "jsonp_callback",
+            contentType: 'application/json',
+        },
     })
+
         .then(function (response) {
-            var mmResults = response.data;
+            console.log("in here")
             console.log(response);
-            console.log(mmResults);
+            var mmRespond = response.data
+            for(i=0; i < mmRespond; i++) {
+                console.log("in here")
+
+                console.log(mmRespond.message.body.track_list[0].track.lyric_id)
+            }
+            //console.log(mmRespond.message.body.track_list[0].track_id);
+            //console.log(mmResults.message.body.track_.track.lyrics_id)
         });
 
     $.ajax({
@@ -62,38 +68,38 @@ $("#searchButton").on("click", function () {
                     var videoDescription = "[No Description Given]";
                 }
                 var videoLink = $("<a>").attr("href", "https://www.youtube.com/watch?v=" + videoId);
-                    videoLink.attr("target", "_blank");
-                    // videoLink.attr("permission", "allowed");
-                    // videoLink.attr("videoEmbeddable", true);
-                    // videoLink.attr("videoSyndicated", true);
-                    videoLink.text("https://www.youtube.com/watch?v=" + videoId);
+                videoLink.attr("target", "_blank");
+                // videoLink.attr("permission", "allowed");
+                // videoLink.attr("videoEmbeddable", true);
+                // videoLink.attr("videoSyndicated", true);
+                videoLink.text("https://www.youtube.com/watch?v=" + videoId);
                 var videoThumbnail = ytResults[j].snippet.thumbnails.medium.url;
                 var videoThumbnailTag = $("<img>").attr("src", videoThumbnail);
                 var videoPlayer = $("<iframe>").attr({
-                        src: "https://www.youtube.com/embed/" + videoId + "?rel=0",
-                        width: "560",
-                        height: "315",
-                        frameborder: "0",
-                        allow: "autoplay; encrypted-media",
+                    src: "https://www.youtube.com/embed/" + videoId + "?rel=0",
+                    width: "560",
+                    height: "315",
+                    frameborder: "0",
+                    allow: "autoplay; encrypted-media",
 
-                        allowfullscreen: ""
+                    allowfullscreen: ""
 
-                  
-                  
-                  
-     
-                    })
-                    $("#emptyDiv").prepend(
-                        $("<h2>").text(videoTitle),
-                        $("<div>").append(videoLink),
-                        // $("<div>").append(videoThumbnailTag),
-                        $("<br>"),
-                        $("<div class='loadingStyle'>").append(videoPlayer),
-                        $("<div>").append("Description: " + videoDescription),
-                        $("<br>"),
-                        $("<hr>"),
-                        $("<br>")
-                    );
+
+
+
+
+                })
+                $("#emptyDiv").prepend(
+                    $("<h2>").text(videoTitle),
+                    $("<div>").append(videoLink),
+                    // $("<div>").append(videoThumbnailTag),
+                    $("<br>"),
+                    $("<div class='loadingStyle'>").append(videoPlayer),
+                    $("<div>").append("Description: " + videoDescription),
+                    $("<br>"),
+                    $("<hr>"),
+                    $("<br>")
+                );
             }
         })
 });
