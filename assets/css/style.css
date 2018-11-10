@@ -4,13 +4,29 @@
     width: 75px;
 }
 
+#emptyDiv {
+	background-color: #f3f0ea;
+}
+
+#noteFill {
+	font-family: 'Anton', sans-serif;
+	letter-spacing: 0.5px;
+	color: white;
+	text-decoration: underline;
+}
+
+.form-control {
+	width: 100%;
+	margin: 10px 0px 10px 0px;
+}
+
 hr {
 	background-color: red;
 	border-width: 3px;
 }
 
-h3, a {
-	color: white;
+h2, a {
+	color: grey;
 }
 
 .loadingStyle {
@@ -33,12 +49,22 @@ body {
     background-color: lightgrey;
 }
 
+#videoHeaderStyle {
+	color: red;
+	text-decoration: underline;
+	font-family: helvetica;
+}
+
 #barLine {
     background-color: #ff0101;
 }
 
+#searchTab {
+	color: #dec;
+}
+
 #header {
-    color: black;
+	color:#dec;
     font-size: 50px;
     padding: 20 0 20 0;
     text-align: center;
