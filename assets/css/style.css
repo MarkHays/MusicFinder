@@ -4,13 +4,29 @@
     width: 75px;
 }
 
+#emptyDiv {
+	background-color: #f3f0ea;
+}
+
+#noteFill {
+	font-family: 'Anton', sans-serif;
+	letter-spacing: 0.5px;
+	color: white;
+	text-decoration: underline;
+}
+
+.form-control {
+	width: 100%;
+	margin: 10px 0px 10px 0px;
+}
+
 hr {
 	background-color: red;
 	border-width: 3px;
 }
 
-h3, a {
-	color: white;
+h2, a {
+	color: grey;
 }
 
 .loadingStyle {
@@ -26,29 +42,46 @@ a:hover {
 	color: black;
 	font-weight: bold;
 	font-size: 20px;
+	border: solid 2px;
 }
 
 body {
     background-color: lightgrey;
 }
 
+#videoHeaderStyle {
+	color: red;
+	text-decoration: underline;
+	font-family: helvetica;
+}
+
 #barLine {
     background-color: #ff0101;
 }
 
+#searchTab {
+	color: #dec;
+}
+
 #header {
-    color: black;
+	color:#dec;
     font-size: 50px;
     padding: 20 0 20 0;
     text-align: center;
 	background: #ff0101;
 	font-weight: bold;
+	margin-top: 10px;
+	border: solid 2px;
+	border-color: black;
+	width: 100%;
 }
 #exampleInputText1 {
     text-align: center;
 }
 .btn-primary {
-    background: #ff0101;
+	background: #ff0101;
+	font-family: 'Open Sans', sans-serif;
+
 }
 
 label {
@@ -71,10 +104,38 @@ body {
 	-webkit-animation: Gradient 15s ease infinite;
 	-moz-animation: Gradient 15s ease infinite;
     animation: Gradient 15s ease infinite;
-    font-family: 'Inconsolata', monospace;
+	font-family: 'Open Sans', sans-serif;
+
+	   
 
 }
+input[type=text] {
 
+	border: 5px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    padding: 15px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 10px 0;
+	
+}
+
+.border-success {
+	border-color: black;
+}
+
+#noteFill {
+    letter-spacing: 0.5px;
+    color: white;
+    text-decoration: underline;
+}
 @-webkit-keyframes Gradient {
 	0% {
 		background-position: 0% 50%
