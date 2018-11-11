@@ -49,7 +49,6 @@ $("#searchButton").on("click", function () {
             var ytResults = response.items;
             console.log(response);
             $("#emptyDiv").text("");
-            $("#emptyDiv").append("<h1 id='videoHeaderStyle'>Video Results:</h1>");
             for (j = 0; j < ytResults.length; j++) {
                 var videoTitle = ytResults[j].snippet.title;
                 var videoId = ytResults[j].id.videoId;
@@ -60,11 +59,9 @@ $("#searchButton").on("click", function () {
                 var videoLink = $("<a>").attr("href", "https://www.youtube.com/watch?v=" + videoId);
                 videoLink.attr("target", "_blank");
                 videoLink.attr("permission", "allowed");
-                 videoLink.attr("videoEmbeddable", true);
-                 videoLink.attr("videoSyndicated", true);
-                 videoLink.text("https://www.youtube.com/watch?v=" + videoId);
-                 // var videoThumbnail = ytResults[j].snippet.thumbnails.medium.url;
-                 //   var videoThumbnailTag = $("<img>").attr("src", videoThumbnail);
+                //  videoLink.text("https://www.youtube.com/watch?v=" + videoId);
+                //  var videoThumbnail = ytResults[j].snippet.thumbnails.medium.url;
+                //    var videoThumbnailTag = $("<img>").attr("src", videoThumbnail);
                  var videoPlayer = $("<iframe>").attr({
                      src: "https://www.youtube.com/embed/" + videoId + "?rel=0",
                     width: "560",
@@ -75,15 +72,15 @@ $("#searchButton").on("click", function () {
                 })
                 $("#emptyDiv").append(
                     $("<h2>").text(videoTitle),
-                    $("<div>").append(videoLink),
+                    // $("<div>").append(videoLink),
                     //$("<div>").append(videoThumbnailTag),
-                    $("<br>"),
+                    // $("<br>"),
                     $("<div class='loadingStyle'>").append(videoPlayer),
-                    $("<div>").append("Description: " + videoDescription),
+                    $("<div id='descriptionStyle'>").append("Description: " + videoDescription),
                     $("<br>"),
                     $("<hr>"),
                     $("<br>")
                 );
             }
-        })
+        });
 });

@@ -5,7 +5,8 @@
 }
 
 #emptyDiv {
-	/*background-color: #f3f0ea;*/
+	background-color: #ff0017;
+	border: solid 2px;
 }
 
 #noteFill {
@@ -21,12 +22,16 @@
 }
 
 hr {
-	background-color: red;
+	background-color: white;
 	border-width: 3px;
 }
 
-h2, a {
-	color: grey;
+h2 {
+	padding: 10px;
+}
+
+h2, a, #descriptionStyle {
+	color: white;
 }
 
 .loadingStyle {
@@ -92,10 +97,6 @@ label {
 	color: black;
 }
 
-.table {
-    /*background: white;*/
-}
-
 body {
 	width: 100wh;
 	height: 90vh;
@@ -105,12 +106,9 @@ body {
 	-moz-animation: Gradient 15s ease infinite;
     animation: Gradient 15s ease infinite;
 	font-family: 'Open Sans', sans-serif;
-
-	   
-
 }
-input[type=text] {
 
+input[type=text] {
 	border: 5px solid white; 
     -webkit-box-shadow: 
       inset 0 0 8px  rgba(0,0,0,0.1),
@@ -123,8 +121,7 @@ input[type=text] {
             0 0 16px rgba(0,0,0,0.1); 
     padding: 15px;
     background: rgba(255,255,255,0.5);
-    margin: 0 0 10px 0;
-	
+    margin: 0 0 10px 0;	
 }
 
 .border-success {
@@ -136,6 +133,7 @@ input[type=text] {
     color: white;
     text-decoration: underline;
 }
+
 @-webkit-keyframes Gradient {
 	0% {
 		background-position: 0% 50%
